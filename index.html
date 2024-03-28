@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kalkulator 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    
+<div class="container">
+    <div class="display">
+        <h1 align="center">UKK KALKULATOR LUKMAN </h1>
+        <input id="screen" type="text" placeholder="0">
+    </div>
+    <div class="btns">
+        <div class="row">
+           <button onclick="log()">log</button>   
+            <button class="btn">(</button>
+            <button class="btn">)</button>
+            <button id="ac" onclick="screen.value=''">AC</button>
+            <button id="ce" onclick="backspc()">⌫</button>
+        </div>
+        <div class="row"> 
+            <button onclick="pi()">π</button>
+             <button onclick="sin ()">sin</button>
+             <button onclick="cos()">cos</button>
+             <button onclick="tan()">tan</button>
+            <button class="btn">%</button>
+        </div>
+        <div class="row">
+            <button onclick="fact()">x!</button>
+            <button id="angka" class="btn">7</button>
+            <button id="angka" class="btn">8</button>
+            <button id="angka"class="btn">9</button>
+            <button class="btn">÷</button>
+
+        </div>
+        <div class="row">
+             <button onclick="sqrt()">√</button>
+            <button id="angka" class="btn">4</button>
+            <button id="angka" class="btn">5</button>
+            <button id="angka" class="btn">6</button>
+            <button class="btn">x</button>
+
+        </div>
+        <div class="row">
+            
+           <button onclick="pow ()">x<span style="position: relative; bottom: .4em; right: .1em;">y</span> </button>
+            <button id="angka" class="btn">1</button>
+            <button id="angka" class="btn">2</button>
+            <button id="angka" class="btn">3</button>
+            <button class="btn">-</button>
+        </div>
+        <div class="row">
+            <button onclick="e ()">e</button>
+            
+            <button id="angka" class="btn">0</button>
+            <button id="angka" class="btn">.</button>
+            <button id="eval" onclick="screen.value=eval(screen.value.replaceAll('%', '* 0.01'))">=</button>
+            <button class="btn">+</button>
+
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    var screen=document.querySelector('#screen');
+    var btn=document.querySelectorAll('.btn');
+
+    for(item of btn)
+    {
+        item.addEventListener('click',(e)=>{
+            btntext=e.target.innerText;
+            if(btntext=='x')
+            {
+                btntext='*';
+            }
+            if(btntext=='÷')
+            {
+                btntext='/'
+            }
+            screen.value+=btntext;
+
+        });
+    }
+    function sin()
+{
+    screen.value=Math.sin(screen.value);
+}
+function cos()
+{
+    screen.value=Math.cos(screen.value);
+}
+function tan()
+{
+    screen.value=Math.tan(screen.value);
+}
+function pow()
+{
+    screen.value=Math.pow(screen.value, 2);
+}
+function sqrt()
+{
+    screen.value=Math.sqrt(screen.value,2);
+}
+function log()
+{
+    screen.value=Math.log(screen.value);
+}
+function pi()
+{
+    screen.value=3.14159265359;
+}
+function e()
+{
+    screen.value=2.71828182846;
+}
+function fact()
+{
+    var i, num, f;
+    f=1
+    num=screen.value;
+    for(i=1; i<=num; i++)
+    {
+        f=f*i;
+    }
+    i=1-1;
+     screen.value=f;
+}
+function backspc()
+{
+    screen.value=screen.value.substr(0,screen.value.length-1);
+}
+</script>
+</html>
